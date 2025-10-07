@@ -15,7 +15,7 @@ export const PedidoList = ({ pedidos, onView, onUpdateStatus }: PedidoListProps)
         {
             key: 'numeroPedido',
             title: 'Número',
-            render: (value: string) => <span className="font-mono">{value}</span>,
+            render: (value: unknown) => <span className="font-mono">{value as string}</span>,
         },
         {
             key: 'clienteNome',
@@ -24,24 +24,24 @@ export const PedidoList = ({ pedidos, onView, onUpdateStatus }: PedidoListProps)
         {
             key: 'dataPedido',
             title: 'Data',
-            render: (value: string) => formatDateTime(value),
+            render: (value: unknown) => formatDateTime(value as string),
         },
         {
             key: 'status',
             title: 'Status',
-            render: (value: number) => <StatusBadge status={value} />,
+            render: (value: unknown) => <StatusBadge status={value as number} />,
         },
         {
             key: 'valorTotal',
             title: 'Valor Total',
-            render: (value: number) => (
-                <span className="font-semibold text-primary-600">{formatCurrency(value)}</span>
+            render: (value: unknown) => (
+                <span className="font-semibold text-primary-600">{formatCurrency(value as number)}</span>
             ),
         },
         {
             key: 'actions',
             title: 'Ações',
-            render: (_: any, row: PedidoDto) => (
+            render: (_: unknown, row: PedidoDto) => (
                 <div className="flex gap-2">
                     <button
                         onClick={() => onView(row)}
@@ -53,7 +53,7 @@ export const PedidoList = ({ pedidos, onView, onUpdateStatus }: PedidoListProps)
                     <button
                         onClick={() => onUpdateStatus(row)}
                         className="text-yellow-600 hover:text-yellow-800"
-                        title="Alterar Status"
+                        title="Atualizar Status"
                     >
                         <MdEdit className="w-5 h-5" />
                     </button>
@@ -62,5 +62,5 @@ export const PedidoList = ({ pedidos, onView, onUpdateStatus }: PedidoListProps)
         },
     ];
 
-    return <Table columns={columns} data={pedidos} emptyMessage="Nenhum pedido encontrado" />;
+    return <Table<PedidoDto> columns={columns} data={pedidos} emptyMessage="Nenhum pedido encontrado" />;
 };

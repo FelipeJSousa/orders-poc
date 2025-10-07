@@ -35,9 +35,10 @@ export const CallbackPage = () => {
                 setAuthData(response.token, response.user);
 
                 navigate('/');
-            } catch (err: any) {
+            } catch (err: unknown) {
+                const errorMsg = (err as { response?: { data?: { message?: string } } })?.response?.data?.message || 'Erro ao autenticar';
                 console.error('Erro ao processar callback:', err);
-                setError(err.response?.data?.message || 'Erro ao autenticar');
+                setError(errorMsg);
             }
         };
 

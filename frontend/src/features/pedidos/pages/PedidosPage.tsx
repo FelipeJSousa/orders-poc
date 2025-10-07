@@ -27,7 +27,7 @@ export const PedidosPage = () => {
             await createMutation.mutateAsync(data);
             toast.success('Pedido criado com sucesso!');
             setIsCreateModalOpen(false);
-        } catch (error) {
+        } catch {
             toast.error('Erro ao criar pedido');
         }
     };
@@ -53,7 +53,7 @@ export const PedidosPage = () => {
             toast.success('Status atualizado com sucesso!');
             setIsStatusModalOpen(false);
             setSelectedPedido(null);
-        } catch (error) {
+        } catch {
             toast.error('Erro ao atualizar status');
         }
     };

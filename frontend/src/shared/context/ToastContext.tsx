@@ -1,23 +1,5 @@
-import { createContext, useContext, ReactNode } from 'react';
-import { useToast } from '@/shared/hooks/useToast';
+import { ToastContext } from './ToastContext.helpers';
 import { ToastContainer } from '@/shared/components/ToastContainer';
-
-interface ToastContextValue {
-    success: (message: string) => void;
-    error: (message: string) => void;
-    warning: (message: string) => void;
-    info: (message: string) => void;
-}
-
-const ToastContext = createContext<ToastContextValue | undefined>(undefined);
-
-export const useToastContext = () => {
-    const context = useContext(ToastContext);
-    if (!context) {
-        throw new Error('useToastContext must be used within ToastProvider');
-    }
-    return context;
-};
 
 interface ToastProviderProps {
     children: ReactNode;

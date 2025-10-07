@@ -61,11 +61,12 @@ export interface ApiError {
 
 export const getApiError = (error: unknown): ApiError => {
     if (axios.isAxiosError(error)) {
-        const axiosError = error as AxiosError<any>;
+        const axiosError = error as AxiosError<unknown>;
+        const data = axiosError.response?.data as { message?: string; errors?: Record<string, string[]> } | undefined;
         return {
-            message: axiosError.response?.data?.message || axiosError.message || 'Erro desconhecido',
+            message: data?.message || axiosError.message || 'Erro desconhecido',
             statusCode: axiosError.response?.status,
-            errors: axiosError.response?.data?.errors,
+            errors: data?.errors,
         };
     }
 

@@ -27,7 +27,7 @@ export const ClientesPage = () => {
             await createMutation.mutateAsync(data);
             toast.success('Cliente criado com sucesso!');
             setIsCreateModalOpen(false);
-        } catch (error) {
+        } catch {
             toast.error('Erro ao criar cliente');
         }
     };
@@ -51,7 +51,7 @@ export const ClientesPage = () => {
             toast.success('Cliente atualizado com sucesso!');
             setIsEditModalOpen(false);
             setSelectedCliente(null);
-        } catch (error) {
+        } catch {
             toast.error('Erro ao atualizar cliente');
         }
     };
@@ -62,7 +62,7 @@ export const ClientesPage = () => {
         try {
             await deleteMutation.mutateAsync(cliente.id);
             toast.success('Cliente deletado com sucesso!');
-        } catch (error) {
+        } catch {
             toast.error('Erro ao deletar cliente');
         }
     };

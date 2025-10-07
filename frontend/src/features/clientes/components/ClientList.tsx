@@ -22,7 +22,7 @@ export const ClienteList = ({ clientes, onView, onEdit, onDelete }: ClienteListP
         {
             key: 'tipoPessoa',
             title: 'Tipo',
-            render: (value: number) => (
+            render: (value: unknown) => (
                 <Badge variant={value === 1 ? 'info' : 'success'}>
                     {value === 1 ? 'PF' : 'PJ'}
                 </Badge>
@@ -31,12 +31,12 @@ export const ClienteList = ({ clientes, onView, onEdit, onDelete }: ClienteListP
         {
             key: 'telefone',
             title: 'Telefone',
-            render: (value: string) => value || '-',
+            render: (value: unknown) => (value as string) || '-',
         },
         {
             key: 'ativo',
             title: 'Status',
-            render: (value: boolean) => (
+            render: (value: unknown) => (
                 <Badge variant={value ? 'success' : 'danger'}>
                     {value ? 'Ativo' : 'Inativo'}
                 </Badge>
@@ -45,7 +45,7 @@ export const ClienteList = ({ clientes, onView, onEdit, onDelete }: ClienteListP
         {
             key: 'actions',
             title: 'Ações',
-            render: (_: any, row: ClienteDto) => (
+            render: (_: unknown, row: ClienteDto) => (
                 <div className="flex gap-2">
                     <button
                         onClick={() => onView(row)}
@@ -64,7 +64,7 @@ export const ClienteList = ({ clientes, onView, onEdit, onDelete }: ClienteListP
                     <button
                         onClick={() => onDelete(row)}
                         className="text-red-600 hover:text-red-800"
-                        title="Deletar"
+                        title="Excluir"
                     >
                         <MdDelete className="w-5 h-5" />
                     </button>
@@ -73,5 +73,5 @@ export const ClienteList = ({ clientes, onView, onEdit, onDelete }: ClienteListP
         },
     ];
 
-    return <Table columns={columns} data={clientes} emptyMessage="Nenhum cliente encontrado" />;
+    return <Table<ClienteDto> columns={columns} data={clientes} emptyMessage="Nenhum cliente encontrado" />;
 };
