@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using OrdersPoc.Domain.Interfaces;
 using OrdersPoc.Infrastructure.Data;
 using OrdersPoc.Infrastructure.Repositories;
+using OrdersPoc.Infrastructure.StoredProcedures;
 
 namespace OrdersPoc.Infrastructure;
 
@@ -48,6 +49,13 @@ public static class DependencyInjection
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+        services.RegisterStoreProcedures();
+
         return services;
+    }
+
+    private static void RegisterStoreProcedures(this IServiceCollection services)
+    {
+        services.AddScoped<IPedidoStoredProcedures, PedidoStoredProcedures>();
     }
 }

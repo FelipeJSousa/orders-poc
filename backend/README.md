@@ -50,6 +50,10 @@ O banco é automaticamente populado com:
 - 6 pedidos em diferentes status
 - Múltiplos itens por pedido
 
+## Stored Procedures
+
+A stored procedure `sp_atualizar_status_pedido` é criada automaticamente quando o container PostgreSQL é iniciado.
+
 
 ## Estrutura do Projeto
 OrdersPoc/
