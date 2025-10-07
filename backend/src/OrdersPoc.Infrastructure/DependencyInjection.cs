@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using OrdersPoc.Domain.Interfaces;
 using OrdersPoc.Infrastructure.Data;
+using OrdersPoc.Infrastructure.Messaging;
 using OrdersPoc.Infrastructure.Repositories;
 using OrdersPoc.Infrastructure.StoredProcedures;
 
@@ -51,6 +52,8 @@ public static class DependencyInjection
 
         services.RegisterRepositories();
 
+        services.RegisterMessaging();
+
         return services;
     }
 
@@ -66,5 +69,10 @@ public static class DependencyInjection
         services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         services.AddScoped<IClienteRepository, ClienteRepository>();
         services.AddScoped<IPedidoRepository, PedidoRepository>();
+    }
+
+    private static void RegisterMessaging(this IServiceCollection services)
+    {
+        services.AddSingleton<IRabbitMqService, RabbitMqService>();
     }
 }

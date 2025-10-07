@@ -2,6 +2,7 @@ using OrdersPoc.Application.DTOs;
 using OrdersPoc.Application.Interfaces;
 using OrdersPoc.Domain.Entities;
 using OrdersPoc.Domain.Enums;
+using OrdersPoc.Domain.Events;
 using OrdersPoc.Domain.Interfaces;
 
 namespace OrdersPoc.Application.Services;
@@ -12,17 +13,20 @@ public class PedidoService : IPedidoService
     private readonly IClienteRepository _clienteRepository;
     private readonly IPedidoStoredProcedures _pedidoStoredProcedures;
     private readonly IUnitOfWork _unitOfWork;
+    private readonly IRabbitMqService _rabbitMqService;
 
     public PedidoService(
         IPedidoRepository pedidoRepository,
         IClienteRepository clienteRepository,
         IPedidoStoredProcedures pedidoStoredProcedures,
-        IUnitOfWork unitOfWork)
+        IUnitOfWork unitOfWork,
+        IRabbitMqService rabbitMqService)
     {
         _pedidoRepository = pedidoRepository;
         _clienteRepository = clienteRepository;
         _pedidoStoredProcedures = pedidoStoredProcedures;
         _unitOfWork = unitOfWork;
+        _rabbitMqService = rabbitMqService;
     }
 
     public async Task<PedidoDto?> GetByIdAsync(Guid id)
@@ -63,6 +67,25 @@ public class PedidoService : IPedidoService
 
         await _pedidoRepository.AddAsync(pedido);
         await _unitOfWork.SaveChangesAsync();
+
+        try
+        {
+            var message = new PedidoCriadoMessage
+            {
+                PedidoId = pedido.Id,
+                NumeroPedido = pedido.NumeroPedido,
+                ClienteId = pedido.ClienteId,
+                ClienteNome = cliente.Nome,
+                ValorTotal = pedido.ValorTotal.Amount,
+                DataCriacao = DateTime.UtcNow
+            };
+
+            _rabbitMqService.PublishMessage("pedidos-queue", message);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro ao publicar mensagem: {ex.Message}");
+        }
 
         return MapToDto(pedido);
     }
