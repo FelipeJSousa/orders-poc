@@ -1,5 +1,6 @@
-import { AuthContext } from './AuthContext.helpers';
+import { AuthContext, useAuth } from './AuthContext.helpers';
 import { ReactNode, useEffect, useState } from 'react';
+import { User } from '../types/auth.types';
 
 interface AuthProviderProps {
     children: ReactNode;
@@ -36,6 +37,10 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         localStorage.removeItem('auth_user');
     };
 
+    const login = () => {
+        throw new Error('login() not implemented');
+    };
+
     return (
         <AuthContext.Provider
             value={{
@@ -43,6 +48,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
                 token,
                 isAuthenticated: !!token,
                 isLoading,
+                login,
                 logout,
                 setAuthData,
             }}
@@ -51,3 +57,5 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         </AuthContext.Provider>
     );
 };
+
+export { useAuth };

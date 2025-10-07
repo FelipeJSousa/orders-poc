@@ -1,5 +1,8 @@
 import { ToastContext } from './ToastContext.helpers';
+export { useToastContext } from './ToastContext.helpers';
+import { ReactNode } from 'react';
 import { ToastContainer } from '@/shared/components/ToastContainer';
+import { useToast } from '@/shared/hooks/useToast';
 
 interface ToastProviderProps {
     children: ReactNode;

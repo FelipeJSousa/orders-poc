@@ -1,19 +1,19 @@
 import { ReactNode } from 'react';
 
-interface Column<T> {
+interface Column<T extends Record<string, any>> {
     key: string;
     title: string;
     render?: (value: unknown, row: T) => ReactNode;
 }
 
-interface TableProps<T> {
+interface TableProps<T extends Record<string, any>> {
     columns: Column<T>[];
     data: T[];
     emptyMessage?: string;
     onRowClick?: (row: T) => void;
 }
 
-export const Table = <T,>({ columns, data, emptyMessage = 'Nenhum dado encontrado', onRowClick }: TableProps<T>) => {
+export const Table = <T extends Record<string, any>>({ columns, data, emptyMessage = 'Nenhum dado encontrado', onRowClick }: TableProps<T>) => {
     return (
         <div className="overflow-x-auto">
             <table className="min-w-full divide-y divide-gray-200">
