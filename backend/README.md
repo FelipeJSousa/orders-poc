@@ -28,6 +28,28 @@ dotnet run
 ### 3. Acessar Swagger
 http://localhost:5000/swagger
 
+## Migrations
+
+## Criar Migrations
+```shell
+dotnet ef migrations add NomeDaMigration \
+--project src/OrdersPoc.Infrastructure/OrdersPoc.Infrastructure.csproj \
+--startup-project src/OrdersPoc.API/OrdersPoc.API.csproj
+```
+
+## Aplicar Migrations
+```shell
+dotnet ef database update \
+--project src/OrdersPoc.Infrastructure/OrdersPoc.Infrastructure.csproj \
+--startup-project src/OrdersPoc.API/OrdersPoc.API.csproj
+```
+## Dados de Teste
+
+O banco é automaticamente populado com:
+- 5 clientes (3 PF, 2 PJ)
+- 6 pedidos em diferentes status
+- Múltiplos itens por pedido
+
 
 ## Estrutura do Projeto
 OrdersPoc/
