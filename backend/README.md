@@ -50,6 +50,20 @@ O banco é automaticamente populado com:
 - 6 pedidos em diferentes status
 - Múltiplos itens por pedido
 
+## Testes
+
+### Executar Testes Unitários
+
+Rodar todos os testes
+```shell 
+dotnet test
+```
+
+Rodar apenas testes unitários
+```shell 
+dotnet test tests/OrdersPoc.UnitTests/OrdersPoc.UnitTests.csproj
+```
+
 ## Stored Procedures
 
 A stored procedure `sp_atualizar_status_pedido` é criada automaticamente quando o container PostgreSQL é iniciado.
