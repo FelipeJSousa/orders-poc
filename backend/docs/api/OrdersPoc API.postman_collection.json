@@ -1,0 +1,1751 @@
+{
+	"info": {
+		"_postman_id": "24d78da4-be55-4192-8a2b-60875ff62d16",
+		"name": "OrdersPoc API",
+		"description": "API de gerenciamento de pedidos e clientes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49063263",
+		"_collection_link": "https://poc-338583.postman.co/workspace/Team-Workspace~0d58fcd0-027d-4d6d-8c65-9ca2a4aa9db4/collection/49063263-24d78da4-be55-4192-8a2b-60875ff62d16?action=share&source=collection_link&creator=49063263"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "/api/Auth",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"code\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Auth",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Auth"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"code\": \"string\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Auth",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Auth"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"code\": \"string\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Auth",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Auth"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9826,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Clientes",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "/api/Clientes/:id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Clientes/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Clientes",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "acec662e-e706-53a3-4f9c-45fe2652b25f"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Clientes/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Clientes",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Unauthorized",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Clientes/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Clientes",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9826,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}"
+										},
+										{
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Clientes/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Clientes",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9826,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}"
+										}
+									]
+								},
+								{
+									"name": "/api/Clientes/:id",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nome\": \"string\",\n  \"email\": \"string\",\n  \"telefone\": \"string\",\n  \"endereco\": \"string\",\n  \"cidade\": \"string\",\n  \"estado\": \"string\",\n  \"cep\": \"string\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Clientes/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Clientes",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "acec662e-e706-53a3-4f9c-45fe2652b25f"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"nome\": \"string\",\n  \"email\": \"string\",\n  \"telefone\": \"string\",\n  \"endereco\": \"string\",\n  \"cidade\": \"string\",\n  \"estado\": \"string\",\n  \"cep\": \"string\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Clientes/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Clientes",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"nome\": \"string\",\n  \"email\": \"string\",\n  \"telefone\": \"string\",\n  \"endereco\": \"string\",\n  \"cidade\": \"string\",\n  \"estado\": \"string\",\n  \"cep\": \"string\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Clientes/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Clientes",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9826,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}"
+										},
+										{
+											"name": "Unauthorized",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"nome\": \"string\",\n  \"email\": \"string\",\n  \"telefone\": \"string\",\n  \"endereco\": \"string\",\n  \"cidade\": \"string\",\n  \"estado\": \"string\",\n  \"cep\": \"string\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Clientes/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Clientes",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9826,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}"
+										},
+										{
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"nome\": \"string\",\n  \"email\": \"string\",\n  \"telefone\": \"string\",\n  \"endereco\": \"string\",\n  \"cidade\": \"string\",\n  \"estado\": \"string\",\n  \"cep\": \"string\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Clientes/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Clientes",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9826,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}"
+										}
+									]
+								},
+								{
+									"name": "/api/Clientes/:id",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Clientes/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Clientes",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "acec662e-e706-53a3-4f9c-45fe2652b25f"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "No Content",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Clientes/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Clientes",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Clientes/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Clientes",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9826,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}"
+										},
+										{
+											"name": "Unauthorized",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Clientes/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Clientes",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9826,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}"
+										},
+										{
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Clientes/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Clientes",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9826,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "/api/Clientes",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Clientes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Clientes"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Clientes",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Clientes"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Clientes",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Clientes"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9826,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}"
+								}
+							]
+						},
+						{
+							"name": "/api/Clientes",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"string\",\n  \"email\": \"string\",\n  \"tipoPessoa\": 6419,\n  \"cpfCnpj\": \"string\",\n  \"telefone\": \"string\",\n  \"endereco\": \"string\",\n  \"cidade\": \"string\",\n  \"estado\": \"string\",\n  \"cep\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Clientes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Clientes"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Created",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nome\": \"string\",\n  \"email\": \"string\",\n  \"tipoPessoa\": 6419,\n  \"cpfCnpj\": \"string\",\n  \"telefone\": \"string\",\n  \"endereco\": \"string\",\n  \"cidade\": \"string\",\n  \"estado\": \"string\",\n  \"cep\": \"string\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Clientes",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Clientes"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nome\": \"string\",\n  \"email\": \"string\",\n  \"tipoPessoa\": 6419,\n  \"cpfCnpj\": \"string\",\n  \"telefone\": \"string\",\n  \"endereco\": \"string\",\n  \"cidade\": \"string\",\n  \"estado\": \"string\",\n  \"cep\": \"string\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Clientes",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Clientes"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9826,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}"
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nome\": \"string\",\n  \"email\": \"string\",\n  \"tipoPessoa\": 6419,\n  \"cpfCnpj\": \"string\",\n  \"telefone\": \"string\",\n  \"endereco\": \"string\",\n  \"cidade\": \"string\",\n  \"estado\": \"string\",\n  \"cep\": \"string\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Clientes",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Clientes"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9826,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Pedidos",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "status",
+									"item": [
+										{
+											"name": "{status}",
+											"item": [
+												{
+													"name": "/api/Pedidos/:id/status/:status",
+													"request": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "text/plain"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/Pedidos/:id/status/:status",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"Pedidos",
+																":id",
+																"status",
+																":status"
+															],
+															"variable": [
+																{
+																	"key": "id",
+																	"value": "acec662e-e706-53a3-4f9c-45fe2652b25f"
+																},
+																{
+																	"key": "status",
+																	"value": "5582"
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "OK",
+															"originalRequest": {
+																"method": "PUT",
+																"header": [
+																	{
+																		"key": "Authorization",
+																		"value": "Bearer <token>",
+																		"description": "Added as a part of security scheme: bearer"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/Pedidos/:id/status/:status",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"Pedidos",
+																		":id",
+																		"status",
+																		":status"
+																	],
+																	"variable": [
+																		{
+																			"key": "id"
+																		},
+																		{
+																			"key": "status"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "text",
+															"header": [],
+															"cookie": [],
+															"body": ""
+														},
+														{
+															"name": "Bad Request",
+															"originalRequest": {
+																"method": "PUT",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "text/plain"
+																	},
+																	{
+																		"key": "Authorization",
+																		"value": "Bearer <token>",
+																		"description": "Added as a part of security scheme: bearer"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/Pedidos/:id/status/:status",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"Pedidos",
+																		":id",
+																		"status",
+																		":status"
+																	],
+																	"variable": [
+																		{
+																			"key": "id"
+																		},
+																		{
+																			"key": "status"
+																		}
+																	]
+																}
+															},
+															"status": "Bad Request",
+															"code": 400,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9826,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}"
+														},
+														{
+															"name": "Unauthorized",
+															"originalRequest": {
+																"method": "PUT",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "text/plain"
+																	},
+																	{
+																		"key": "Authorization",
+																		"value": "Bearer <token>",
+																		"description": "Added as a part of security scheme: bearer"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/Pedidos/:id/status/:status",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"Pedidos",
+																		":id",
+																		"status",
+																		":status"
+																	],
+																	"variable": [
+																		{
+																			"key": "id"
+																		},
+																		{
+																			"key": "status"
+																		}
+																	]
+																}
+															},
+															"status": "Unauthorized",
+															"code": 401,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9826,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}"
+														},
+														{
+															"name": "Not Found",
+															"originalRequest": {
+																"method": "PUT",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "text/plain"
+																	},
+																	{
+																		"key": "Authorization",
+																		"value": "Bearer <token>",
+																		"description": "Added as a part of security scheme: bearer"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/Pedidos/:id/status/:status",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"Pedidos",
+																		":id",
+																		"status",
+																		":status"
+																	],
+																	"variable": [
+																		{
+																			"key": "id"
+																		},
+																		{
+																			"key": "status"
+																		}
+																	]
+																}
+															},
+															"status": "Not Found",
+															"code": 404,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9826,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}"
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "/api/Pedidos/:id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Pedidos/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Pedidos",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "acec662e-e706-53a3-4f9c-45fe2652b25f"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Pedidos/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Pedidos",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Unauthorized",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Pedidos/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Pedidos",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9826,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}"
+										},
+										{
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Pedidos/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Pedidos",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9826,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "/api/Pedidos",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Pedidos",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Pedidos"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Pedidos",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Pedidos"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Pedidos",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Pedidos"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9826,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}"
+								}
+							]
+						},
+						{
+							"name": "/api/Pedidos",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"clienteId\": \"d9eb2815-f799-ac09-0b00-1b92f83475eb\",\n  \"observacoes\": \"string\",\n  \"itens\": [\n    {\n      \"produto\": \"string\",\n      \"quantidade\": 5408,\n      \"precoUnitario\": 1660.7451084641366\n    },\n    {\n      \"produto\": \"string\",\n      \"quantidade\": 1189,\n      \"precoUnitario\": 6882.103569425304\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Pedidos",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Pedidos"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Created",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"clienteId\": \"d9eb2815-f799-ac09-0b00-1b92f83475eb\",\n  \"observacoes\": \"string\",\n  \"itens\": [\n    {\n      \"produto\": \"string\",\n      \"quantidade\": 5408,\n      \"precoUnitario\": 1660.7451084641366\n    },\n    {\n      \"produto\": \"string\",\n      \"quantidade\": 1189,\n      \"precoUnitario\": 6882.103569425304\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Pedidos",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Pedidos"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"clienteId\": \"d9eb2815-f799-ac09-0b00-1b92f83475eb\",\n  \"observacoes\": \"string\",\n  \"itens\": [\n    {\n      \"produto\": \"string\",\n      \"quantidade\": 5408,\n      \"precoUnitario\": 1660.7451084641366\n    },\n    {\n      \"produto\": \"string\",\n      \"quantidade\": 1189,\n      \"precoUnitario\": 6882.103569425304\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Pedidos",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Pedidos"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9826,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}"
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"clienteId\": \"d9eb2815-f799-ac09-0b00-1b92f83475eb\",\n  \"observacoes\": \"string\",\n  \"itens\": [\n    {\n      \"produto\": \"string\",\n      \"quantidade\": 5408,\n      \"precoUnitario\": 1660.7451084641366\n    },\n    {\n      \"produto\": \"string\",\n      \"quantidade\": 1189,\n      \"precoUnitario\": 6882.103569425304\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Pedidos",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Pedidos"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9826,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{bearerToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/"
+		}
+	]
+}

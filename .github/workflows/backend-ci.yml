@@ -1,0 +1,62 @@
+name: Backend CI
+
+on:
+  push:
+    branches: [ main, development ]
+    paths:
+      - 'backend/**'
+      - '.github/workflows/backend-ci.yml'
+  pull_request:
+    branches: [ main, development ]
+    paths:
+      - 'backend/**'
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: ordersPocDb
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore dependencies
+        run: |
+          cd backend
+          dotnet restore
+
+      - name: Build
+        run: |
+          cd backend
+          dotnet build --no-restore --configuration Release
+
+      - name: Run Unit Tests
+        run: |
+          cd backend
+          dotnet test tests/OrdersPoc.UnitTests --no-build --configuration Release --verbosity normal
+
+      - name: Run Integration Tests
+        run: |
+          cd backend
+          dotnet test tests/OrdersPoc.IntegrationTests --no-build --configuration Release --verbosity normal
+        env:
+          ConnectionStrings__DefaultConnection: "Host=localhost;Port=5432;Database=ordersPocDb;Username=postgres;Password=postgres"

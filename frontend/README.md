@@ -1,73 +1,65 @@
-# React + TypeScript + Vite
+# OrdersPoc Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend React + TypeScript para sistema de gerenciamento de pedidos.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React 18** - UI Library
+- **TypeScript** - Type Safety
+- **Vite** - Build Tool
+- **TailwindCSS** - Styling
+- **React Router** - Routing
+- **TanStack Query** - Server State Management
+- **Zustand** - Client State Management
+- **React Hook Form** - Form Management
+- **Zod** - Validation
+- **Axios** - HTTP Client
 
-## React Compiler
+## Estrutura de Pastas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+src/
+├── features/ # Features do sistema
+│ ├── clientes/ # Feature de clientes
+│ ├── pedidos/ # Feature de pedidos
+│ └── auth/ # Feature de autenticação
+├── shared/ # Código compartilhado
+│ ├── components/ # Componentes reutilizáveis
+│ ├── hooks/ # Custom hooks
+│ ├── utils/ # Utilitários
+│ ├── constants/ # Constantes
+│ └── types/ # Tipos globais
+└── core/ # Core da aplicação
+├── api/ # Configuração API
+├── config/ # Configurações
+└── router/ # Rotas
 
-## Expanding the ESLint configuration
+## Setup
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Instalar dependências
+```shell 
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Configurar variáveis de ambiente
+```shell 
+cp .env.example .env
 ```
+
+Rodar em desenvolvimento
+```shell 
+npm run dev
+```
+
+Build para produção
+```shell 
+npm run build
+```
+
+## Scripts Disponíveis
+
+- `npm run dev` - Inicia servidor de desenvolvimento
+- `npm run build` - Build para produção
+- `npm run lint` - Roda ESLint
+- `npm run lint:fix` - Corrige erros de lint automaticamente
+- `npm run format` - Formata código com Prettier
+- `npm run type-check` - Verifica tipos TypeScript
