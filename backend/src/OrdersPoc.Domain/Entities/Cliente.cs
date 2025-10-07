@@ -57,7 +57,6 @@ public class Cliente : Entity
     {
         var emailVo = Email.Create(email);
 
-        // Validar CPF/CNPJ baseado no tipo de pessoa
         if (!string.IsNullOrWhiteSpace(cpfCnpj))
         {
             if (tipoPessoa == TipoPessoa.Fisica)
