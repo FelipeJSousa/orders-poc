@@ -9,7 +9,7 @@ export const LoginButton = () => {
     return (
         <button
             onClick={handleLogin}
-            className="btn-primary flex items-center justify-center gap-3 w-full"
+            className="btn border-2 border-solid border-primary-500 rounded-lg p-4 flex items-center justify-center gap-3 w-full hover:bg-gray-50"
         >
             <FcGoogle className="w-6 h-6" />
             Entrar com Google

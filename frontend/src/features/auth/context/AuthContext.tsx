@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { User } from '../types/auth.types';
+import {User} from "@/features/auth/types/auth.types.ts";
 
 interface AuthContextValue {
     user: User | null;
@@ -13,7 +13,7 @@ interface AuthContextValue {
 
 const AuthContext = createContext<AuthContextValue | undefined>(undefined);
 
-export const useAuthContext = () => {
+export const useAuth = () => {
     const context = useContext(AuthContext);
     if (!context) {
         throw new Error('useAuth must be used within AuthProvider');

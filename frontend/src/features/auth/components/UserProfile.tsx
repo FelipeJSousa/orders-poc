@@ -1,8 +1,8 @@
 import { BiLogOut } from 'react-icons/bi';
-import { useAuthContext } from '../hooks/useAuth';
+import { useAuth } from "@/features/auth/context/AuthContext.tsx";
 
 export const UserProfile = () => {
-    const { user, logout } = useAuthContext();
+    const { user, logout } = useAuth();
 
     if (!user) return null;
 

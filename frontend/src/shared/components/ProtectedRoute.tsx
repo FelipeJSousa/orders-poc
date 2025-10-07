@@ -1,14 +1,14 @@
 import { ReactNode } from 'react';
 import { Navigate } from 'react-router-dom';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
-import { useAuthContext } from '@/features/auth/hooks/useAuth';
+import {useAuth} from "@/features/auth/context/AuthContext.tsx";
 
 interface ProtectedRouteProps {
     children: ReactNode;
 }
 
 export const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
-    const { isAuthenticated, isLoading } = useAuthContext();
+    const { isAuthenticated, isLoading } = useAuth();
 
     if (isLoading) {
         return (

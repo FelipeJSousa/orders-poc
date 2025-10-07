@@ -31,15 +31,9 @@ public class PedidoService : IPedidoService
         return pedido == null ? null : MapToDto(pedido);
     }
 
-    public async Task<List<PedidoDto>> GetByClienteIdAsync(Guid clienteId)
+    public async Task<List<PedidoDto>> GetAll()
     {
-        var pedidos = await _pedidoRepository.GetByClienteIdAsync(clienteId);
-        return pedidos.Select(MapToDto).ToList();
-    }
-
-    public async Task<List<PedidoDto>> GetByStatusAsync(int status)
-    {
-        var pedidos = await _pedidoRepository.GetByStatusAsync((StatusPedido)status);
+        var pedidos = await _pedidoRepository.GetActiveAsync();
         return pedidos.Select(MapToDto).ToList();
     }
 

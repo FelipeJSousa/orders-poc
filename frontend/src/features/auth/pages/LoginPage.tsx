@@ -2,10 +2,10 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MdShoppingCart } from 'react-icons/md';
 import { LoginButton } from "@/features/auth/components/LoginButton.tsx";
-import { useAuthContext } from "@/features/auth/hooks/useAuth.ts";
+import { useAuth } from "@/features/auth/context/AuthContext.tsx";
 
 export const LoginPage = () => {
-    const { isAuthenticated } = useAuthContext();
+    const { isAuthenticated } = useAuth();
     const navigate = useNavigate();
 
     useEffect(() => {

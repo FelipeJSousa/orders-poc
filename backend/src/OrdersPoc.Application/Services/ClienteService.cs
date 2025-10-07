@@ -139,7 +139,8 @@ public class ClienteService : IClienteService
             Estado = cliente.Estado,
             Cep = cliente.Cep,
             Ativo = cliente.Ativo,
-            CriadoEm = cliente.CriadoEm
+            CriadoEm = cliente.CriadoEm,
+            AtualizadoEm = cliente.AtualizadoEm
         };
     }
 }

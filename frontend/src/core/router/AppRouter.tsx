@@ -1,31 +1,21 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { MdHome } from 'react-icons/md';
 import { LoginPage } from '@/features/auth/pages/LoginPage';
 import { CallbackPage } from '@/features/auth/pages/CallbackPage';
 import { ProtectedRoute } from '@/shared/components/ProtectedRoute';
-import { UserProfile } from '@/features/auth/components/UserProfile';
 import { ROUTES } from '@/shared/constants/routes.constants';
+import { MainLayout } from "@/shared/components/layout";
+import { Card } from "@/shared/components/ui";
+import { ClientesPage } from "@/features/clientes/pages/ClientesPage.tsx";
+import { PedidosPage } from "@/features/pedidos/pages/PedidosPage.tsx";
 
 const HomePage = () => (
-    <div className="min-h-screen bg-gray-50">
-        <header className="bg-white shadow">
-            <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                    <MdHome className="w-6 h-6 text-primary-600" />
-                    <h1 className="text-2xl font-bold text-gray-900">OrdersPoc</h1>
-                </div>
-                <UserProfile />
-            </div>
-        </header>
-        <main className="max-w-7xl mx-auto px-4 py-8">
-            <div className="card">
-                <h2 className="text-xl font-semibold mb-4">Bem-vindo!</h2>
-                <p className="text-gray-600">
-                    Sistema de gerenciamento de pedidos e clientes está pronto.
-                </p>
-            </div>
-        </main>
-    </div>
+    <MainLayout>
+        <Card title="Bem-vindo ao OrdersPoc!">
+            <p className="text-gray-600">
+                Sistema de gerenciamento de pedidos e clientes está pronto.
+            </p>
+        </Card>
+    </MainLayout>
 );
 
 export const AppRouter = () => {
@@ -40,6 +30,24 @@ export const AppRouter = () => {
                     element={
                         <ProtectedRoute>
                             <HomePage />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/clientes"
+                    element={
+                        <ProtectedRoute>
+                            <ClientesPage />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/pedidos"
+                    element={
+                        <ProtectedRoute>
+                            <PedidosPage />
                         </ProtectedRoute>
                     }
                 />

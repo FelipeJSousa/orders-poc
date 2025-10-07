@@ -44,16 +44,16 @@ public class PedidosController : ControllerBase
     }
 
     /// <summary>
-    /// Lista pedidos por cliente
+    /// Lista pedidos
     /// </summary>
-    [HttpGet("cliente/{clienteId}")]
+    [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-    public async Task<IActionResult> GetByCliente(Guid clienteId)
+    public async Task<IActionResult> GetAll()
     {
-        _logger.LogInformation("Listando pedidos do cliente {ClienteId}", clienteId);
+        _logger.LogInformation("Listando todos pedidos");
 
-        var pedidos = await _pedidoService.GetByClienteIdAsync(clienteId);
+        var pedidos = await _pedidoService.GetAll();
         return Ok(pedidos);
     }
 

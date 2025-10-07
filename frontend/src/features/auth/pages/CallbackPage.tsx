@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import { authService } from '../services/authService';
-import { useAuthContext } from '../context/AuthContext';
+import {useAuth} from "@/features/auth/context/AuthContext.tsx";
 
 export const CallbackPage = () => {
     const [searchParams] = useSearchParams();
     const navigate = useNavigate();
-    const { setAuthData } = useAuthContext();
+    const { setAuthData } = useAuth();
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
