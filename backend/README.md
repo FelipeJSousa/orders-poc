@@ -10,6 +10,25 @@ Prova de conceito para modernização de sistema legado WinForms para arquitetur
 - **React + TypeScript** - Frontend
 - **xUnit** - Testes automatizados
 
+## Como Executar
+
+### 1. Iniciar Banco de Dados
+
+```shell
+cd scripts/docker 
+docker-compose up -d
+```
+
+### 2. Executar API
+```shell
+cd src/OrdersPoc.API
+dotnet run
+```
+
+### 3. Acessar Swagger
+http://localhost:5000/swagger
+
+
 ## Estrutura do Projeto
 OrdersPoc/
 
@@ -20,26 +39,6 @@ OrdersPoc/
 ├── scripts/ # Scripts de banco e utilitários
 
 └── docs/ # Documentação
-
-## Como Executar
-
-Instruções serão adicionadas conforme o desenvolvimento.
-
-## Arquitetura
-OrdersPoc/
-
-├── src/ # Código-fonte
-
-├── tests/ # Testes automatizados
-
-├── scripts/ # Scripts de banco e utilitários
-
-└── docs/ # Documentação
-
-
-## Como Executar
-
-Instruções serão adicionadas conforme o desenvolvimento.
 
 ## Arquitetura
 
