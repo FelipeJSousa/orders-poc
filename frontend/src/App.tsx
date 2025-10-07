@@ -1,35 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+
+const queryClient = new QueryClient({
+    defaultOptions: {
+        queries: {
+            retry: 1,
+            refetchOnWindowFocus: false,
+            staleTime: 5 * 60 * 1000, // 5 minutes
+        },
+    },
+});
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    return (
+        <QueryClientProvider client={queryClient}>
+            <div className="min-h-screen bg-gray-50">
+                <header className="bg-white shadow">
+                    <div className="max-w-7xl mx-auto px-4 py-6">
+                        <h1 className="text-3xl font-bold text-gray-900">Orders Poc</h1>
+                    </div>
+                </header>
+                <main className="max-w-7xl mx-auto px-4 py-6">
+                    <div className="card">
+                        <h2 className="text-2xl font-semibold mb-4">
+                            Bem-vindo ao Orders Poc
+                        </h2>
+                        <p className="text-gray-600">
+                            Sistema de gerenciamento de pedidos e clientes
+                        </p>
+                    </div>
+                </main>
+            </div>
+            <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProvider>
+    );
 }
 
-export default App
+export default App;
