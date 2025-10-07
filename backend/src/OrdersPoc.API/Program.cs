@@ -1,3 +1,4 @@
+using OrdersPoc.API.Middleware;
 using OrdersPoc.Application;
 using OrdersPoc.Infrastructure;
 using OrdersPoc.Infrastructure.Data.Extensions;
@@ -20,6 +21,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
     await app.MigrateDatabaseAsync();
 }
+
+app.UseMiddleware<ErrorHandlingMiddleware>();
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
