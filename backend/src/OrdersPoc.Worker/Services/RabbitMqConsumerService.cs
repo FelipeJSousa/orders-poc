@@ -1,10 +1,6 @@
 using System.Text;
 using System.Text.Json;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using OrdersPoc.Domain.Events;
-using OrdersPoc.Infrastructure.Messaging;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 
