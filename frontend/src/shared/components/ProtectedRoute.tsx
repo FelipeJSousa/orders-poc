@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { Navigate } from 'react-router-dom';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
-import {useAuth} from "@/features/auth/context/AuthContext.tsx";
+import { useAuth } from "@/features/auth/context/AuthContext.helpers";
 
 interface ProtectedRouteProps {
     children: ReactNode;

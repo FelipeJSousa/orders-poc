@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import { authService } from '../services/authService';
-import {useAuth} from "@/features/auth/context/AuthContext.tsx";
+import {useAuth} from "@/features/auth/context/AuthContext.helpers";
 
 export const CallbackPage = () => {
     const [searchParams] = useSearchParams();

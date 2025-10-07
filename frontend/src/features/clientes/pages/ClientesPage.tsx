@@ -3,7 +3,7 @@ import { MdAdd } from 'react-icons/md';
 import { MainLayout } from '@/shared/components/layout';
 import { Button, Card, Loading, Modal } from '@/shared/components/ui';
 import { ClienteDto } from "@/features/clientes/types/cliente.types.ts";
-import { useToastContext } from "@/shared/context/ToastContext.tsx";
+import { useToastContext } from "@/shared/context/ToastContext.helpers";
 import { CreateClienteFormData } from "@/features/clientes/validation/clienteSchema.ts";
 import { useClientes, useCreateCliente, useDeleteCliente, useUpdateCliente } from "@/features/clientes/hooks/useClientes.ts";
 import { ClienteForm } from "@/features/clientes/components/ClienteForm.tsx";

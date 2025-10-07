@@ -1,4 +1,4 @@
-import { AuthContext, useAuth } from './AuthContext.helpers';
+import { AuthContext } from './AuthContext.helpers';
 import { ReactNode, useEffect, useState } from 'react';
 import { User } from '../types/auth.types';
 
@@ -57,5 +57,3 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         </AuthContext.Provider>
     );
 };
-
-export { useAuth };

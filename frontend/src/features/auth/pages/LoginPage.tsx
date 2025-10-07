@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MdShoppingCart } from 'react-icons/md';
 import { LoginButton } from "@/features/auth/components/LoginButton.tsx";
-import { useAuth } from "@/features/auth/context/AuthContext.tsx";
+import { useAuth } from "@/features/auth/context/AuthContext.helpers";
 
 export const LoginPage = () => {
     const { isAuthenticated } = useAuth();

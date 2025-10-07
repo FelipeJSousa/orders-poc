@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 interface Column<T extends Record<string, any>> {
     key: string;
     title: string;

@@ -8,7 +8,7 @@ import { PedidoForm } from '../components/PedidoForm';
 import { PedidoDetail } from '../components/PedidoDetail';
 import { UpdateStatusModal } from '../components/UpdateStatusModal';
 import { CreatePedidoFormData } from '../validation/pedidoSchema';
-import { useToastContext } from "@/shared/context/ToastContext.tsx";
+import { useToastContext } from "@/shared/context/ToastContext.helpers";
 import { PedidoDto } from "@/features/pedidos/types/pedido.type.ts";
 
 export const PedidosPage = () => {
