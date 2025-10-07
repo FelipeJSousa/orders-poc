@@ -1,0 +1,47 @@
+name: Frontend CI
+
+on:
+  push:
+    branches: [ main, development ]
+    paths:
+      - 'frontend/**'
+      - '.github/workflows/frontend-ci.yml'
+  pull_request:
+    branches: [ main, development ]
+    paths:
+      - 'frontend/**'
+
+jobs:
+  build-and-lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        run: |
+          cd orders-poc-frontend
+          npm ci
+
+      - name: Lint
+        run: |
+          cd frontend
+          npm run lint
+
+      - name: Build
+        run: |
+          cd frontend
+          npm run build
+        env:
+          VITE_API_BASE_URL: http://localhost:5000/api
+          VITE_GOOGLE_CLIENT_ID: dummy-client-id
+          VITE_GOOGLE_REDIRECT_URI: http://localhost:5173/callback
+          VITE_GOOGLE_AUTHORITY: https://accounts.google.com
