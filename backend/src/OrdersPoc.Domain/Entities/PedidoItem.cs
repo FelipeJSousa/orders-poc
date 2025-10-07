@@ -10,10 +10,8 @@ public class PedidoItem : Entity
     public Money PrecoUnitario { get; private set; }
     public Money Subtotal { get; private set; }
 
-    // Relacionamento
     public Pedido Pedido { get; private set; } = null!;
 
-    // Construtor privado para EF Core
     private PedidoItem() { }
 
     private PedidoItem(string produto, int quantidade, Money precoUnitario)

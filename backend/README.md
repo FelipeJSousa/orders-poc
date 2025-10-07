@@ -63,6 +63,10 @@ Rodar apenas testes unitários
 ```shell 
 dotnet test tests/OrdersPoc.UnitTests/OrdersPoc.UnitTests.csproj
 ```
+Rodar apenas testes de integração
+```shell
+dotnet test tests/OrdersPoc.IntegrationTests/OrdersPoc.IntegrationTests.csproj
+```
 
 ## Stored Procedures
 

@@ -47,9 +47,9 @@ public static class DependencyInjection
             }
         });
 
-        services.AddScoped<IUnitOfWork, UnitOfWork>();
-
         services.RegisterStoreProcedures();
+
+        services.RegisterRepositories();
 
         return services;
     }
@@ -57,5 +57,14 @@ public static class DependencyInjection
     private static void RegisterStoreProcedures(this IServiceCollection services)
     {
         services.AddScoped<IPedidoStoredProcedures, PedidoStoredProcedures>();
+    }
+
+    private static void RegisterRepositories(this IServiceCollection services)
+    {
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+        services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+        services.AddScoped<IClienteRepository, ClienteRepository>();
+        services.AddScoped<IPedidoRepository, PedidoRepository>();
     }
 }

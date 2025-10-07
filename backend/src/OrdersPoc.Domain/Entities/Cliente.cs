@@ -15,11 +15,9 @@ public class Cliente : Entity
     public string? Estado { get; private set; }
     public string? Cep { get; private set; }
 
-    // Relacionamentos
     private readonly List<Pedido> _pedidos = new();
     public IReadOnlyCollection<Pedido> Pedidos => _pedidos.AsReadOnly();
 
-    // Construtor privado para EF Core
     private Cliente() { }
 
     private Cliente(
