@@ -1,5 +1,5 @@
 using OrdersPoc.Infrastructure;
-using OrdersPoc.Infrastructure.Extensions;
+using OrdersPoc.Infrastructure.Data.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 

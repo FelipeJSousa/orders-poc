@@ -1,10 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using OrdersPoc.Infrastructure.Data;
 using OrdersPoc.Infrastructure.Data.Seeds;
 
-namespace OrdersPoc.Infrastructure.Extensions;
+namespace OrdersPoc.Infrastructure.Data.Extensions;
 
 public static class DatabaseExtensions
 {
