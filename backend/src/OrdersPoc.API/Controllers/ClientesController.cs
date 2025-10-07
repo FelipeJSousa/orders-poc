@@ -7,6 +7,7 @@ namespace OrdersPoc.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
 public class ClientesController : ControllerBase
 {
     private readonly IClienteService _clienteService;

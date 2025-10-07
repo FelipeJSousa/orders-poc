@@ -11,6 +11,11 @@ public static class DependencyInjection
         services.AddScoped<IClienteService, ClienteService>();
         services.AddScoped<IPedidoService, PedidoService>();
 
+
+        services.AddHttpClient<IGoogleAuthService, GoogleAuthService>();
+        services.AddScoped<ITokenService, TokenService>();
+
+
         return services;
     }
 }
